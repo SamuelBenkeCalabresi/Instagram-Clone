@@ -1,0 +1,88 @@
+.sidebar {
+  display: none;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+@media (min-width: 1000px) {
+  .sidebar {
+    display: flex;
+  }
+}
+
+/* Header */
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.sidebar__headerAvatar {
+  margin-right: 10px;
+  border: 1px solid #c7c7c7;
+}
+
+.sidebar__headerTitleUsername {
+  font-weight: 700;
+}
+
+.sidebar__headerTitleName {
+  font-size: 11px;
+  color: #8e8e8e;
+}
+
+.sidebar__suggestionsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.sidebar__suggestionsHeader > h3 {
+  font-size: 15px;
+  color: #8e8e8e;
+}
+
+.sidebar__suggestionsHeader > button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.sidebar__suggestionsHeader > button:focus {
+  outline: none;
+}
+
+.sidebar__suggestionsHeader > button:active {
+  color: #8e8e8e;
+}
+
+/* Footer */
+.sidebar__footerLinks {
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+.sidebar__footerLink {
+  color: #c7c7c7;
+  display: inline;
+  font-size: 12px;
+}
+
+.sidebar__footerLink + .sidebar__footerLink::before {
+  content: "\00B7";
+  margin: 0 0.25em;
+}
+
+.sidebar__footerDINPA {
+  color: rgba(var(--edc, 199, 199, 199), 1);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  text-transform: uppercase;
+}

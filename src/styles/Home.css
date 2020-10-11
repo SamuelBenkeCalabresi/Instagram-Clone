@@ -1,0 +1,19 @@
+.home {
+  background-color: #fafafa;
+}
+
+.home__body {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home__bodyPostContainer {
+  flex: 50%;
+}
+
+/* @media (min-width: 1030px) {
+  .home__bodySidebar {
+    visibility: visible;
+  }
+} */
