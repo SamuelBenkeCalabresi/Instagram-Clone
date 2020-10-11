@@ -10,7 +10,7 @@ import SendOutlinedIcon from "@material-ui/icons/SendOutlined";
 import SendIcon from "@material-ui/icons/Send";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 
-function Post({ id, username, description, postImage }) {
+function Post({ id, username, description, postImageURL }) {
   return (
     <div className="post">
       <div className="post__header">
@@ -18,7 +18,7 @@ function Post({ id, username, description, postImage }) {
         <p className="post__headerUsername">{username}</p>
         <MoreHorizIcon />
       </div>
-      <img className="post__image" src={postImage} alt="" />
+      <img className="post__image" src={postImageURL} alt="" />
       <div className="post__menu">
         <div className="post__navigation">
           <div className="post__navigationLeftSide">
