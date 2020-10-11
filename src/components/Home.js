@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { db } from "../api/firebase";
 // Styles
 import "../styles/Home.css";
 // Components
@@ -8,26 +8,28 @@ import Sidebar from "../components/Sidebar";
 import Post from "../components/Post";
 
 function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) => {
+      setPosts(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
+
   return (
     <div className="home">
       <div className="home__container">
         <Header />
         <div className="home__body">
-          {/* Posts */}
           <main className="home__bodyPostContainer">
-            <Post
-              id="123456789"
-              username="goodoldvegan"
-              postImage="https://www.peta.org/wp-content/uploads/2010/06/vegan-food.png"
-              description="Cajun Spiced Potato Wedges! Served with smoked tofu, salad, and
-            avocado lime dip! 💥"
-            />
-            <Post
-              id="123456789"
-              username="footdistrict"
-              postImage="https://www.sneakersnstuff.com/images/272949/product_2x.jpg"
-              description="The online raffle for the adidas YEEZY QTNM Teal Blue is now CLOSED!"
-            />
+            {posts.map(({ id, username, postImageURL, description }) => (
+              <Post
+                id={id}
+                username={username}
+                postImageURL={postImageURL}
+                description={description}
+              />
+            ))}
           </main>
           <Sidebar className="home__bodySidebar" />
         </div>
